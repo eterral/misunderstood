@@ -79,6 +79,10 @@ PoetryDB
 |---|---| ---|
 |November 5-7th| Prompt / Wireframes / Priority Matrix / Timeframes | Incomplete
 |November 8th| Project Approval | Incomplete
+| November 9th | HTML/Script | Incomplete
+|November 10th | CSS | Incomplete
+|November 11th | Polish | Incomplete
+|November 12th| Post-MVP | Incomplete
 
 ## Priority Matrix
 
