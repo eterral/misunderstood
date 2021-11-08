@@ -61,9 +61,10 @@ PoetryDB
 
 #### MVP 
 
-- Find 2 external APIs to use
-- Pull a random cartoon on the page with a correspond random line of poetry
-- Allow user to suggest their own caption for a random cartoon 
+-Use HTML, CSS, API, and Javascript to develop the app
+- Remotely access the New Yorker & PoetryDB API to add elements to the app
+- Pull a randomized cartoon from the API and a randomized line of poetry to display
+- With user input, allow the user to suggest their own caption to display along with a randomized cartoon 
 
 #### PostMVP  
 
@@ -77,9 +78,9 @@ PoetryDB
 
 |  Day | Deliverable | Status
 |---|---| ---|
-|November 5-7th| Prompt / Wireframes / Priority Matrix / Timeframes | Incomplete
-|November 8th| Project Approval | Incomplete
-| November 9th | HTML/Script | Incomplete
+|November 5-7th| Prompt / Wireframes / Priority Matrix / Timeframes | Complete
+|November 8th| Project Approval/Psuedo Code/Test Code | Complete
+|November 9th | HTML/Script | Incomplete
 |November 10th | CSS | Incomplete
 |November 11th | Polish | Incomplete
 |November 12th| Post-MVP | Incomplete
@@ -93,7 +94,9 @@ PoetryDB
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Basic HTML | M | 3hrs|  |  |
+|Psuedocode | H | 1hr | 1hr| 1hr |
+|Axios Request| H | 1hr | 1hr | 1hr|
+| Basic HTML | M | 3hrs| 2hr |  |
 | CSS | H | 4hrs|  |  |
 | New Yorker API | H | 2.5hrs | |  |
 | API 2 | H | 2.5hrs |  | |
