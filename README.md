@@ -95,7 +95,7 @@ PoetryDB
 | --- | :---: |  :---: | :---: | :---: |
 | Basic HTML | M | 3hrs|  |  |
 | CSS | H | 4hrs|  |  |
-| API 1 | H | 2.5hrs | |  |
+| New Yorker API | H | 2.5hrs | |  |
 | API 2 | H | 2.5hrs |  | |
 | Script | H | 3hrs |  | |
 | Polish | L | 3hrs |  |  |
