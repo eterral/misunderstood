@@ -93,7 +93,7 @@ PoetryDB
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Basic HTML | H | 3hrs|  |  |
+| Basic HTML | M | 3hrs|  |  |
 | CSS | H | 4hrs|  |  |
 | API 1 | H | 2.5hrs | |  |
 | API 2 | H | 2.5hrs |  | |
