@@ -1,26 +1,52 @@
 body {
-    font-family: 'Forum'
+    font-family: 'Forum';
+    text-align: center;
 }
 .header {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-
     color: rgb(24, 24, 24);
 }
 .navbar {
     list-style-type: none;
     font-weight: bold;
-    display: inline;
-    /* border-style: solid none solid none;
-    border-color: rgb(172, 172, 172); */
-}
-li {
-    display: block;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    border-style: solid none solid none;
+    border-color: rgb(172, 172, 172);
+    gap: 25px;
 }
 
+a:link {
+    color: rgb(24, 24, 24);
+}
+
+a:hover {
+    color: rgb(172, 172, 172);
+}
+
+a:visited {
+    color: rgb(24, 24, 24);
+}
 /* flex box container for cartoon & caption */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    /* width:50vw;
+    height:50vh; */
+}
+.cartoon{
+    /* max-height: 500px; */
+}
 
+.caption {
+    font-style: italic;
+}
 /* style for contact form */
 
 /* style for footer */

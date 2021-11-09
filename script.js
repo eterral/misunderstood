@@ -1,8 +1,10 @@
 //declare variables for DOM appending
-cartoonDiv = document.createElement("div");
-captionDiv = document.createElement("div");
-document.body.appendChild(cartoonDiv);
-document.body.appendChild(captionDiv);
+// cartoonDiv = document.getElementsByClassName("cartoon");
+// captionDiv = document.getElementsByClassName("caption");
+containerDiv = document.getElementsByClassName("container");
+randomBtn = document.getElementById("random");
+// document.body.appendChild(cartoonDiv);
+// document.body.appendChild(captionDiv);
 
 //axios functions to get random cartoon & random poem
 async function rdmCartoon() {
@@ -48,9 +50,11 @@ function rdmLine(caption) {
 //function to render random comic
 function renderCartoon(cartoon) {
   //append cartoon to div in HTML
+  const cartoonDiv = document.createElement("div");
+  containerDiv.appendChild(cartoonDiv);
   const cartoonImg = document.createElement("img");
   cartoonImg.src = cartoon[0].src;
-  cartoonDiv.appendChild(cartoonImg);
+  cartoonDiv[0].appendChild(cartoonImg);
   rdmCaption();
 }
 
@@ -58,13 +62,18 @@ function renderCartoon(cartoon) {
 //randomize line selection
 function renderCaption(caption) {
   //append caption to Div below cartoon
+  const captionDiv = document.createElement("div");
+  containerDiv.appendChild(captionDiv);
   let newCaption = document.createElement("div");
   newCaption.innerText = caption;
-  captionDiv.appendChild(newCaption);
+  captionDiv[0].appendChild(newCaption);
 }
 
 //event listener for navbar
-
+randomBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  // containerDiv.innerHTML = "";
+  console.log("click");
+  rdmCartoon();
+});
 //event listener for user input for caption
-
-rdmCartoon();
