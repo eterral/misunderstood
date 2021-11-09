@@ -1,8 +1,8 @@
 //declare variables for DOM appending
 // cartoonDiv = document.getElementsByClassName("cartoon");
 // captionDiv = document.getElementsByClassName("caption");
-containerDiv = document.getElementsByClassName("container");
-randomBtn = document.getElementById("random");
+let containerDiv = document.getElementsByClassName("container");
+let randomBtn = document.getElementById("random");
 // document.body.appendChild(cartoonDiv);
 // document.body.appendChild(captionDiv);
 
@@ -50,11 +50,11 @@ function rdmLine(caption) {
 //function to render random comic
 function renderCartoon(cartoon) {
   //append cartoon to div in HTML
-  const cartoonDiv = document.createElement("div");
+  let cartoonDiv = document.createElement("div");
   containerDiv.appendChild(cartoonDiv);
-  const cartoonImg = document.createElement("img");
+  let cartoonImg = document.createElement("img");
   cartoonImg.src = cartoon[0].src;
-  cartoonDiv[0].appendChild(cartoonImg);
+  cartoonDiv.appendChild(cartoonImg);
   rdmCaption();
 }
 
@@ -62,7 +62,7 @@ function renderCartoon(cartoon) {
 //randomize line selection
 function renderCaption(caption) {
   //append caption to Div below cartoon
-  const captionDiv = document.createElement("div");
+  let captionDiv = document.createElement("div");
   containerDiv.appendChild(captionDiv);
   let newCaption = document.createElement("div");
   newCaption.innerText = caption;
