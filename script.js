@@ -7,15 +7,20 @@ let captionDiv = document.createElement("div");
 cartoonDiv.classList.add("cartoon-div");
 captionDiv.classList.add("caption-div");
 let searchForm = document.querySelector(".searchfield");
+let favoriteForm = document.querySelector(".set-favorite");
 let randomBtn = document.getElementById("random");
 let userBtn = document.getElementById("usergenerated");
+let favBtn = document.getElementById("favorite");
 let inputField = document.createElement("input");
 let searchBtn = document.createElement("button");
+let setFavorite = document.createElement("button");
 // Set types for field & buttons ot be claled in event listeners
 containerDiv.appendChild(cartoonDiv);
 containerDiv.appendChild(captionDiv);
 searchBtn.type = "submit";
 searchBtn.innerText = "Submit";
+setFavorite.type = "submit";
+setFavorite.innerText = "Save Favorite";
 inputField.type = "text";
 inputField.placeholder = "Enter caption here";
 
@@ -24,8 +29,8 @@ async function rdmCartoon() {
   const url = `https://www.newyorker.com/cartoons/random/randomAPI`;
   try {
     const res = await axios.get(url);
-    const cartoon = res.data;
-    console.log(cartoon);
+    const cartoon = res.data[0].src;
+    // console.log(res.data[0].src);
     renderCartoon(cartoon);
   } catch (error) {
     alert(error);
@@ -37,7 +42,6 @@ async function rdmCaption() {
   try {
     const res = await axios.get(url);
     const caption = res.data[0].lines;
-    console.log(caption);
     rdmLine(caption);
   } catch (error) {
     alert(error);
@@ -59,20 +63,14 @@ function rdmLine(caption) {
     rdmLine(caption);
   } else {
     renderCaption(caption[rdmLineIndex]);
-    console.log(caption[rdmLineIndex]);
   }
-  //assign newVariable to math.round(variable)
-  //return caption[newVariable]
-  // console.log(caption[rdmLine]);
-  // return caption[rdmLine];
 }
 //function to render random comic
 function renderCartoon(cartoon) {
   //append cartoon to div in HTML
-  // let cartoonDiv = document.createElement("div");
-  // containerDiv.appendChild(cartoonDiv);
   let cartoonImg = document.createElement("img");
-  cartoonImg.src = cartoon[0].src;
+  cartoonImg.setAttribute("id", "image");
+  cartoonImg.src = cartoon;
   cartoonDiv.appendChild(cartoonImg);
 }
 
@@ -80,16 +78,16 @@ function renderCartoon(cartoon) {
 //randomize line selection
 function renderCaption(caption) {
   //append caption to Div below cartoon
-  // let captionDiv = document.createElement("div");
-  // containerDiv.appendChild(captionDiv);
   let newCaption = document.createElement("div");
   newCaption.innerText = caption;
   captionDiv.appendChild(newCaption);
+  favoriteForm.appendChild(setFavorite);
 }
 
 function clearDiv() {
   cartoonDiv.innerHTML = "";
   captionDiv.innerHTML = "";
+  searchForm.innerHTML = "";
 }
 
 //event listener for navbar
@@ -97,7 +95,6 @@ randomBtn.addEventListener("click", (e) => {
   e.preventDefault();
   userCaption = "";
   clearDiv();
-  console.log("click");
   rdmCartoon();
   rdmCaption();
 });
@@ -112,7 +109,6 @@ userBtn.addEventListener("click", (e) => {
 
 searchForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  console.log("click");
   let userCaption = inputField.value;
   clearDiv();
   rdmCartoon();
@@ -120,4 +116,21 @@ searchForm.addEventListener("submit", (e) => {
   searchForm.innerHTML = "";
 });
 
-///write function for clearing divs
+favoriteForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let curImage = document.getElementById("image").src;
+  localStorage.setItem("favComic", curImage);
+  localStorage.setItem("favCaption", captionDiv.innerText);
+  // console.log(localStorage.getItem(curImage));
+  // console.log(localStorage.getItem("favCaption"));
+});
+
+favBtn.addEventListener("click", (e) => {
+  // e.preventDefault();
+  // console.log("clicked");
+  clearDiv();
+  let savedCartoon = localStorage.getItem("favComic");
+  renderCartoon(savedCartoon);
+  let savedCaption = localStorage.getItem("favCaption");
+  renderCaption(savedCaption);
+});

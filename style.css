@@ -16,6 +16,7 @@ body {
     flex-direction: row;
     border-style: solid none solid none;
     border-color: rgb(172, 172, 172);
+    border-width: 2px;
     gap: 25px;
 }
 
@@ -44,8 +45,9 @@ a:visited {
     /* max-height: 500px; */
 }
 
-.caption {
+.caption-div {
     font-style: italic;
+    padding-bottom: 10px;
 }
 /* style for contact form */
 
