@@ -50,3 +50,7 @@ a:visited {
 /* style for contact form */
 
 /* style for footer */
+footer {
+    background-color: rgb(172, 172, 172);
+    color: rgb(245, 245, 245);
+}

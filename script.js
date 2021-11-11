@@ -1,10 +1,23 @@
 //declare variables for DOM appending
 // cartoonDiv = document.getElementsByClassName("cartoon");
 // captionDiv = document.getElementsByClassName("caption");
-let containerDiv = document.getElementsByClassName("container");
+let containerDiv = document.querySelector(".container");
+let cartoonDiv = document.createElement("div");
+let captionDiv = document.createElement("div");
+cartoonDiv.classList.add("cartoon-div");
+captionDiv.classList.add("caption-div");
+let searchForm = document.querySelector(".searchfield");
 let randomBtn = document.getElementById("random");
-// document.body.appendChild(cartoonDiv);
-// document.body.appendChild(captionDiv);
+let userBtn = document.getElementById("usergenerated");
+let inputField = document.createElement("input");
+let searchBtn = document.createElement("button");
+// Set types for field & buttons ot be claled in event listeners
+containerDiv.appendChild(cartoonDiv);
+containerDiv.appendChild(captionDiv);
+searchBtn.type = "submit";
+searchBtn.innerText = "Submit";
+inputField.type = "text";
+inputField.placeholder = "Enter caption here";
 
 //axios functions to get random cartoon & random poem
 async function rdmCartoon() {
@@ -15,9 +28,10 @@ async function rdmCartoon() {
     console.log(cartoon);
     renderCartoon(cartoon);
   } catch (error) {
-    alert(`error loading comic`);
+    alert(error);
   }
 }
+
 async function rdmCaption() {
   const url = "https://poetrydb.org/random";
   try {
@@ -25,55 +39,85 @@ async function rdmCaption() {
     const caption = res.data[0].lines;
     console.log(caption);
     rdmLine(caption);
-    // renderCaption(caption);
   } catch (error) {
-    console.log(error);
-    alert(`error loading caption`);
+    alert(error);
   }
 }
 
 //function to collect random line from poem
 function rdmLine(caption) {
   //assign variable to math.random(min, caption.length)
-  let rdmLine = Math.round(Math.random() * caption.length);
+  let rdmLineIndex = Math.round(Math.random() * caption.length);
   //write recusive fuctnion to rerandomize empty strings
-  if (caption[rdmLine] === "") {
+  if (
+    caption[rdmLineIndex].endsWith(",") ||
+    caption[rdmLineIndex].endsWith(";") === true
+  ) {
+    caption[rdmLineIndex] = caption[rdmLineIndex].slice(0, -1);
+  }
+  if (caption[rdmLineIndex] === "") {
     rdmLine(caption);
   } else {
-    renderCaption(caption[rdmLine]);
+    renderCaption(caption[rdmLineIndex]);
+    console.log(caption[rdmLineIndex]);
   }
   //assign newVariable to math.round(variable)
   //return caption[newVariable]
-  console.log(caption[rdmLine]);
+  // console.log(caption[rdmLine]);
   // return caption[rdmLine];
 }
 //function to render random comic
 function renderCartoon(cartoon) {
   //append cartoon to div in HTML
-  let cartoonDiv = document.createElement("div");
-  containerDiv.appendChild(cartoonDiv);
+  // let cartoonDiv = document.createElement("div");
+  // containerDiv.appendChild(cartoonDiv);
   let cartoonImg = document.createElement("img");
   cartoonImg.src = cartoon[0].src;
   cartoonDiv.appendChild(cartoonImg);
-  rdmCaption();
 }
 
 //function to render caption
 //randomize line selection
 function renderCaption(caption) {
   //append caption to Div below cartoon
-  let captionDiv = document.createElement("div");
-  containerDiv.appendChild(captionDiv);
+  // let captionDiv = document.createElement("div");
+  // containerDiv.appendChild(captionDiv);
   let newCaption = document.createElement("div");
   newCaption.innerText = caption;
-  captionDiv[0].appendChild(newCaption);
+  captionDiv.appendChild(newCaption);
+}
+
+function clearDiv() {
+  cartoonDiv.innerHTML = "";
+  captionDiv.innerHTML = "";
 }
 
 //event listener for navbar
 randomBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  // containerDiv.innerHTML = "";
+  userCaption = "";
+  clearDiv();
   console.log("click");
   rdmCartoon();
+  rdmCaption();
 });
 //event listener for user input for caption
+
+userBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  clearDiv();
+  searchForm.appendChild(inputField);
+  searchForm.appendChild(searchBtn);
+});
+
+searchForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  console.log("click");
+  let userCaption = inputField.value;
+  clearDiv();
+  rdmCartoon();
+  renderCaption(userCaption);
+  searchForm.innerHTML = "";
+});
+
+///write function for clearing divs
