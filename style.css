@@ -7,6 +7,7 @@ body {
     margin-right: auto;
     text-align: center;
     color: rgb(24, 24, 24);
+    font-size: 46px;
 }
 .navbar {
     list-style-type: none;
@@ -33,28 +34,45 @@ a:visited {
 }
 /* flex box container for cartoon & caption */
 .container {
+    width: 100vw;
+    height: calc(100vh - 150px);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
-    /* width:50vw;
-    height:50vh; */
+    /* align-items: center; */
 }
 .cartoon{
     /* max-height: 500px; */
 }
 
 .caption-div {
+    /* padding-top: 25px; */
     font-style: italic;
     padding-bottom: 10px;
 }
 
 #image {
-    max-width: 50%;
+    width: 40%;
+    max-height: 80%;
+}
+.set-favorite {
+    padding-top: 15px;
+    padding-bottom: 20px;
 }
 /* style for footer */
 footer {
     background-color: rgb(172, 172, 172);
     color: rgb(245, 245, 245);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
+
+@media only screen and (max-width: 400px) {
+    h1 {
+      font-size: 26px;
+    }
+    .container {
+        height: 80%;
+    }
+  }

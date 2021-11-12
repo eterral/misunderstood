@@ -14,6 +14,7 @@ let favBtn = document.getElementById("favorite");
 let inputField = document.createElement("input");
 let searchBtn = document.createElement("button");
 let setFavorite = document.createElement("button");
+let intro = document.getElementById("intro");
 // Set types for field & buttons ot be claled in event listeners
 containerDiv.appendChild(cartoonDiv);
 containerDiv.appendChild(captionDiv);
@@ -86,6 +87,7 @@ function renderCaption(caption) {
 }
 
 function clearDiv() {
+  intro.innerHTML = "";
   cartoonDiv.innerHTML = "";
   captionDiv.innerHTML = "";
   searchForm.innerHTML = "";
@@ -95,7 +97,6 @@ function clearDiv() {
 //event listener for navbar
 randomBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  userCaption = "";
   clearDiv();
   rdmCartoon();
   rdmCaption();
