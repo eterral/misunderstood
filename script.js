@@ -64,6 +64,7 @@ function rdmLine(caption) {
   } else {
     renderCaption(caption[rdmLineIndex]);
   }
+  favoriteForm.appendChild(setFavorite);
 }
 //function to render random comic
 function renderCartoon(cartoon) {
@@ -88,6 +89,7 @@ function clearDiv() {
   cartoonDiv.innerHTML = "";
   captionDiv.innerHTML = "";
   searchForm.innerHTML = "";
+  favoriteForm.innerHTML = "";
 }
 
 //event listener for navbar
@@ -116,21 +118,19 @@ searchForm.addEventListener("submit", (e) => {
   searchForm.innerHTML = "";
 });
 
-favoriteForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  let curImage = document.getElementById("image").src;
-  localStorage.setItem("favComic", curImage);
-  localStorage.setItem("favCaption", captionDiv.innerText);
-  // console.log(localStorage.getItem(curImage));
-  // console.log(localStorage.getItem("favCaption"));
-});
-
 favBtn.addEventListener("click", (e) => {
   // e.preventDefault();
-  // console.log("clicked");
   clearDiv();
   let savedCartoon = localStorage.getItem("favComic");
   renderCartoon(savedCartoon);
   let savedCaption = localStorage.getItem("favCaption");
   renderCaption(savedCaption);
+  favoriteForm.innerHTML = "";
+});
+
+favoriteForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let curImage = document.getElementById("image").src;
+  localStorage.setItem("favComic", curImage);
+  localStorage.setItem("favCaption", captionDiv.innerText);
 });

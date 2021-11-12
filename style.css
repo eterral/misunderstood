@@ -49,8 +49,10 @@ a:visited {
     font-style: italic;
     padding-bottom: 10px;
 }
-/* style for contact form */
 
+#image {
+    max-width: 50%;
+}
 /* style for footer */
 footer {
     background-color: rgb(172, 172, 172);
