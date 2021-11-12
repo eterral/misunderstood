@@ -41,19 +41,14 @@ a:visited {
     justify-content: center;
     /* align-items: center; */
 }
-.cartoon{
-    /* max-height: 500px; */
-}
 
 .caption-div {
-    /* padding-top: 25px; */
     font-style: italic;
     padding-bottom: 10px;
 }
 
 #image {
-    width: 40%;
-    max-height: 80%;
+    height: calc(80vh - 150px);
 }
 .set-favorite {
     padding-top: 15px;
@@ -70,9 +65,6 @@ footer {
 
 @media only screen and (max-width: 400px) {
     h1 {
-      font-size: 26px;
+        font-size: 26px;
     }
-    .container {
-        height: 80%;
-    }
-  }
+}
