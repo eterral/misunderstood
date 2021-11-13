@@ -72,6 +72,9 @@ footer {
         display: inline;
     }
     #image{
-        max-width: 100vw
+        max-width: 90vw
+    }
+    .container {
+        height: 70vh
     }
 }
