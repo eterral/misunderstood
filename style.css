@@ -39,14 +39,13 @@ a:active{
     color: rgb(24, 24, 24);
     text-decoration: none;
 }
-/* flex box container for cartoon & caption */
+
 .container {
     width: 100vw;
     height: calc(100vh - 150px);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* align-items: center; */
 }
 
 .caption-div {
@@ -61,7 +60,7 @@ a:active{
     padding-top: 15px;
     padding-bottom: 20px;
 }
-/* style for footer */
+
 footer {
     background-color: rgb(172, 172, 172);
     color: rgb(245, 245, 245);
