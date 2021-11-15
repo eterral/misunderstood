@@ -28,7 +28,7 @@ async function rdmCartoon() {
     const cartoon = res.data[0].src;
     renderCartoon(cartoon);
   } catch (error) {
-    alert(error);
+    // alert(error);
   }
 }
 
@@ -39,7 +39,7 @@ async function rdmCaption() {
     const caption = res.data[0].lines;
     rdmLine(caption);
   } catch (error) {
-    alert(error);
+    // alert(error);
   }
 }
 
