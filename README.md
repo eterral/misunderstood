@@ -2,9 +2,8 @@
 
 ## Project Name
 
-Misunderstood
+[Misunderstood](https://eterral.github.io/misunderstood/)
 
-https://eterral.github.io/misunderstood/
 
 ## Project Description
 
