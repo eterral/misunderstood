@@ -56,7 +56,7 @@ PoetryDB
 
 ## Wireframes
 
-![wireframe](https://i.imgur.com/eIQizA4.png)
+![wireframe](https://i.imgur.com/nsBIZjr.png)
 
 
 #### MVP 
@@ -65,12 +65,13 @@ PoetryDB
 - Remotely access the New Yorker & PoetryDB API to add elements to the app
 - Pull a randomized cartoon from the API and a randomized line of poetry to display
 - With user input, allow the user to suggest their own caption to display along with a randomized cartoon 
+- Edit captions to better format as a caption instead of a line from a poem
 
 #### PostMVP  
 
 - Allow local storage for user to save favorite combination
-- Allow user to send favorite combination to me
-- Generate more randomness into the caption & image
+- Allow user to send their favorite combination to the developer
+- Allow more randomness toe be used in generation
 
 ## Project Schedule
 
@@ -80,10 +81,10 @@ PoetryDB
 |---|---| ---|
 |November 5-7th| Prompt / Wireframes / Priority Matrix / Timeframes | Complete
 |November 8th| Project Approval/Psuedo Code/Test Code | Complete
-|November 9th | HTML/Script | Incomplete
-|November 10th | CSS | Incomplete
-|November 11th | Polish | Incomplete
-|November 12th| Post-MVP | Incomplete
+|November 9th | HTML/Script | Complete
+|November 10th | CSS | Complete
+|November 11th | Polish | Complete
+|November 12th| Post-MVP | Complete
 
 ## Priority Matrix
 
@@ -96,18 +97,36 @@ PoetryDB
 | --- | :---: |  :---: | :---: | :---: |
 |Psuedocode | H | 1hr | 1hr| 1hr |
 |Axios Request| H | 1hr | 1hr | 1hr|
-| Basic HTML | M | 3hrs| 2hr |  |
-| CSS | H | 4hrs|  |  |
-| New Yorker API | H | 2.5hrs | |  |
-| API 2 | H | 2.5hrs |  | |
-| Script | H | 3hrs |  | |
-| Polish | L | 3hrs |  |  |
-| Total | H | 18hrs|  |  |
+| Basic HTML | M | 3hrs| 2hrs | 2hrs |
+| CSS | H | 4hrs| 3hrs | 3hrs |
+| New Yorker API | H | 2.5hrs | 1hr | 1hr |
+| PoetryDB API | H | 2.5hrs | 1hr | 1hr|
+| EventListeners | H | 3hrs | 4hrs | 4hrs |
+| Flex Box | H | 4hrs | 5hrs | 5hrs |
+| DOM Manpiulation | H | 3hrs | 4 hrs | 4hrs |
+| Local Storage| L | 3hrs | 1hr| 1hr |
+| Total | H | 27hrs| 24hrs | 24hrs |
 
 
 ## Code Snippet
 
-Coming soon
+```function rdmLine(caption) {
+  let rdmLineIndex = Math.round(Math.random() * caption.length);
+  if (
+    caption[rdmLineIndex].endsWith(",") ||
+    caption[rdmLineIndex].endsWith(";") === true
+  ) {
+    caption[rdmLineIndex] = caption[rdmLineIndex].slice(0, -1);
+  }
+  if (caption[rdmLineIndex] === "") {
+    rdmLine(caption);
+  } else {
+    renderCaption(caption[rdmLineIndex]);
+  }
+  favoriteForm.appendChild(setFavorite);
+}```
 
 ## Change Log
- Coming soon 
+ - 11/14/21
+ 
+ Plan to add contact form in the future

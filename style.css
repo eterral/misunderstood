@@ -23,14 +23,21 @@ body {
 
 a:link {
     color: rgb(24, 24, 24);
+    text-decoration: none;
 }
 
 a:hover {
     color: rgb(172, 172, 172);
+    text-decoration: none;
 }
 
 a:visited {
     color: rgb(24, 24, 24);
+    text-decoration: none;
+}
+a:active{
+    color: rgb(24, 24, 24);
+    text-decoration: none;
 }
 /* flex box container for cartoon & caption */
 .container {

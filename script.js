@@ -1,6 +1,3 @@
-//declare variables for DOM appending
-// cartoonDiv = document.getElementsByClassName("cartoon");
-// captionDiv = document.getElementsByClassName("caption");
 let containerDiv = document.querySelector(".container");
 let cartoonDiv = document.createElement("div");
 let captionDiv = document.createElement("div");
@@ -15,7 +12,6 @@ let inputField = document.createElement("input");
 let searchBtn = document.createElement("button");
 let setFavorite = document.createElement("button");
 let intro = document.getElementById("intro");
-// Set types for field & buttons ot be claled in event listeners
 containerDiv.appendChild(cartoonDiv);
 containerDiv.appendChild(captionDiv);
 searchBtn.type = "submit";
@@ -25,13 +21,11 @@ setFavorite.innerText = "Save Favorite";
 inputField.type = "text";
 inputField.placeholder = "Enter caption here";
 
-//axios functions to get random cartoon & random poem
 async function rdmCartoon() {
   const url = `https://www.newyorker.com/cartoons/random/randomAPI`;
   try {
     const res = await axios.get(url);
     const cartoon = res.data[0].src;
-    // console.log(res.data[0].src);
     renderCartoon(cartoon);
   } catch (error) {
     alert(error);
@@ -49,11 +43,8 @@ async function rdmCaption() {
   }
 }
 
-//function to collect random line from poem
 function rdmLine(caption) {
-  //assign variable to math.random(min, caption.length)
   let rdmLineIndex = Math.round(Math.random() * caption.length);
-  //write recusive fuctnion to rerandomize empty strings
   if (
     caption[rdmLineIndex].endsWith(",") ||
     caption[rdmLineIndex].endsWith(";") === true
@@ -67,19 +58,15 @@ function rdmLine(caption) {
   }
   favoriteForm.appendChild(setFavorite);
 }
-//function to render random comic
+
 function renderCartoon(cartoon) {
-  //append cartoon to div in HTML
   let cartoonImg = document.createElement("img");
   cartoonImg.setAttribute("id", "image");
   cartoonImg.src = cartoon;
   cartoonDiv.appendChild(cartoonImg);
 }
 
-//function to render caption
-//randomize line selection
 function renderCaption(caption) {
-  //append caption to Div below cartoon
   let newCaption = document.createElement("div");
   newCaption.innerText = caption;
   captionDiv.appendChild(newCaption);
@@ -94,14 +81,12 @@ function clearDiv() {
   favoriteForm.innerHTML = "";
 }
 
-//event listener for navbar
 randomBtn.addEventListener("click", (e) => {
   e.preventDefault();
   clearDiv();
   rdmCartoon();
   rdmCaption();
 });
-//event listener for user input for caption
 
 userBtn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -120,7 +105,6 @@ searchForm.addEventListener("submit", (e) => {
 });
 
 favBtn.addEventListener("click", (e) => {
-  // e.preventDefault();
   clearDiv();
   let savedCartoon = localStorage.getItem("favComic");
   renderCartoon(savedCartoon);
